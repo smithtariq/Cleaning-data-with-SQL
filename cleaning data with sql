@@ -32,3 +32,22 @@ FROM
 WHERE
 	TRIM(state) = 'OH';
     
+SELECT
+CAST(date AS date) AS date_only,
+    purchase_price
+FROM
+	google_project.customer_purchase
+WHERE
+	date BETWEEN '2020-12-01' AND '2020-12-31';
+
+SELECT
+	CONCAT(product_code, product_color) AS new_product_code
+FROM
+	google_project.customer_purchase
+WHERE
+	product = 'couch';
+
+SELECT
+	COALESCE(product, product_code) AS product_info
+FROM
+	google_project.customer_purchase
